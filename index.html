@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+            rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            clifford: '#da373d',
+                            backgroundColor: '#1b263b',
+                            bgDark: '#182235',
+                            primaryColor: '#e0e1dd',
+                            secondaryColor: '#DEF2C7',
+                            thirdColor: '#d0f8a1',
+                            fourthColor: '#182235',
+                            greenish: '#52d2b1',
+                            cards: '#a2d568'
+                        },
+                        fontFamily: {
+                            'reddit': ['Reddit Sans', 'ui-sans-serif']
+                        }
+                    }
+                },
+                container:{
+                    center: true,
+                }
+            }
+        </script>
+        <style>
+
+            .mainBg{
+                position: relative;
+                z-index: 2;
+            }
+
+            .mainBg::after {
+                content: '';
+                z-index: -2;
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: linear-gradient(to top, #1b263b 5%, transparent); /* Gradiente linear de baixo para cima */
+                background-image: url(assets/images/background-portfolio.jpg);
+                background-position: center;
+                background-size: cover;
+                opacity: .1;
+            }
+            
+            
+            .mainBg::before {
+                content: '';
+                z-index: -1;
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-color: #1b263b;
+                background-image: url(assets/images/background-portfolio.jpg);
+                opacity: 0.5;
+                background: linear-gradient(270deg, #52d2b1, #1b263b);
+                background-size: 400% 400%;
+                -webkit-animation: AnimationName 10s ease infinite;
+                -moz-animation: AnimationName 10s ease infinite;
+                animation: AnimationName 10s ease infinite;
+            }
+            
+            @-webkit-keyframes AnimationName {
+                0%{background-position:0% 50%}
+                50%{background-position:100% 50%}
+                100%{background-position:0% 50%}
+            }
+            @-moz-keyframes AnimationName {
+                0%{background-position:0% 50%}
+                50%{background-position:100% 50%}
+                100%{background-position:0% 50%}
+            }
+            @keyframes AnimationName {
+                0%{background-position:0% 50%}
+                50%{background-position:100% 50%}
+                100%{background-position:0% 50%}
+            }
+            
+            html{
+                scroll-behavior: smooth;
+            }
+
+            .cardSkill:hover .iconSkill{
+                transform: scale(1.1);
+                filter: grayscale(0);
+            }
+            
+            .cardSkill:hover .containerImgSkill{
+                background-color: #121a29;
+            }
+            
+            .cardSkill:hover .nameSkill{
+                filter: grayscale(0);
+            }
+
+            .cardSkill:hover .imageSkillUnder{
+                opacity: .1;
+            }
+
+            .containerImgSkill{
+                border: 1px solid transparent;
+                transition: background-color .4s, border .4s;
+            }
+
+            .iconSkill{
+                transition: transform .8s, filter .8s, background-color .8s;
+                filter: grayscale(1);
+            }
+            
+            .nameSkill{
+                filter: grayscale(1);
+            }
+            
+            .imageSkillUnder{
+                transition: opacity .8s;
+                filter: grayscale(1);
+            }
+
+        </style>
+        <title>Nilo Sousa - Frontend Developer</title>
+    </head>
+    <body
+        class="bg-backgroundColor text-primaryColor lg:overflow-x-hidden w-full flex flex-col items-center">
+        <header
+            class="w-full fixed backdrop-blur-[1px] z-[999] md:flex hidden items-center justify-center h-[120px] font-reddit font-bold">
+            <div class="container flex w-full justify-between items-center">
+                <h1 class="text-4xl"><a href="#">Nilo Sousa</a></h1>
+                <nav class="w-auto">
+                    <ul class="w-auto flex gap-12 text-xl">
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#whatIDo">What I Do</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a
+                                class="py-2 px-6 rounded-lg bg-cards text-backgroundColor  font-extrabold"
+                                href="#contact">Get in Touch</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main
+            class=" w-full h-screen relative flex justify-center items-center mainBg flex-col">
+            <div
+                class="container grid grid-cols-1 text-center w-full place-items-center ">
+                <div
+                    class="flex flex-col w-full items-center gap-10 font-reddit font-bold uppercase h-full justify-evenly">
+                    <div class="flex flex-col lg:gap-0 gap-5">
+                        <h1 class="text-4xl md:text-7xl font-extrabold">Hi, I'm
+                            Nilo!</h1>
+                        <h1
+                            class="text-2xl md:text-5xl lg:text-7xl reveal-text w-full container ">
+                            <span class="fixedSpan">I</span>
+                            <span id="reveal1"></span>
+                        </h1>
+                    </div>
+                    <div class="w-3/4 lg:w-2/4">
+                        <p class="leading-9">Lorem ipsum dolor sit amet
+                            consectetur adipisicing
+                            elit. Aut, atque tenetur sapiente odit sed iste
+                            rerum quod omnis! Sed asperiores odio iusto
+                            provident ipsum, ex similique quasi iste minus
+                            earum.</p>
+                    </div>
+                    <div class="grid grid-cols-1 place-items-center lg:grid-cols-2 gap-10 items-center relative">
+                        <img
+                            class="w-72 absolute top-36 lg:top-20 left-2/4 -translate-x-2/4"
+                            src="dots-pattern/9.png" alt>
+                        <a
+                            class="py-4 px-6 rounded-lg border-2 border-secondaryColor hover:bg-cards hover:text-backgroundColor hover:border-transparent transition duration-300 font-extrabold "
+                            href="#contact">Get in Touch</a>
+                        <div class="flex gap-7">
+                            <a href="#" target="_blank"><img class="w-12"
+                                    src="github.png" alt="github"></a>
+                            <a href="#" target="_blank"><img class="w-12"
+                                    src="linkedin.png" alt="linkedin"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="relative">
+                    <img class=" w-[560px] rounded-md" src="profile.jpg"
+                        alt="profile">
+                    <img class="absolute z-[-1] w-80 -right-20 top-2/4"
+                        src="dots-pattern.png" alt>
+                </div> -->
+            </div>
+        </main>
+        <section
+            id="about"
+            class="container py-10 px-6 lg:px-0">
+            <header
+            class="w-full text-center lg:text-start flex items-center relative">
+            <h1 class="text-5xl w-full md:text-8xl font-bold text-secondaryColor">About Me</h1>
+            <h1
+                class="absolute top-5 -translate-y-2/4 opacity-5 text-[200px] lg:block hidden font-reddit font-extrabold">About Me</h1>
+        </header>
+            <div class="grid grid-cols-1 lg:grid-cols-2 place-items-center relative py-11 lg:py-20">
+
+                <div class="flex flex-col gap-3 text-xl leading-9 text-justify">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Fuga ullam facere quo vel nobis quaerat. Temporibus,
+                        fugiat voluptate. Aspernatur quaerat amet libero eaque
+                        delectus odit eius minima sapiente architecto natus?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Impedit neque quos repellat excepturi perferendis, in
+                        laudantium. Quo molestias id non ex corrupti asperiores
+                        suscipit, provident eos modi nemo dolore perspiciatis!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Ducimus, maxime assumenda. Nam reiciendis commodi ex
+                        sint quia fugiat eos ipsam repudiandae ut officia quasi
+                        vitae, excepturi quibusdam dolores beatae harum!</p>
+
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Quae perspiciatis qui nesciunt, labore inventore ut
+                        quos. Eveniet animi blanditiis laboriosam libero tempora
+                        quam accusantium magni esse rerum, a eius saepe!</p>
+                </div>
+                <div
+                    class="relative lg:mt-0 mt-11 after:absolute after:bg-greenish after:content-[''] after:w-[90%] after:h-[60%] after:-top-4 after:-right-4 after:z-[-1] before:absolute before:bg-cards before:content-[''] before:w-[90%] before:h-[60%] before:-bottom-4 before:-left-4 before:z-[-1] ">
+                    <img class="w-[300px] lg:w-[500px]" src="profile.jpg" alt="profile">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 py-16 place-items-center">
+                <div
+                    class="w-48 flex flex-col items-center text-center justify-center gap-4 p-6 rounded-lg shadow border-r-4 border-b-4 border-r-transparent border-b-transparent hover:border-r-4 hover:border-b-4 hover:border-r-secondaryColor hover:border-b-secondaryColor transition duration-300 ease-in-out">
+                    <img class="w-3/5" src="checked.png" alt>
+                    <h3 class="text-2xl font-reddit font-bold">1 year of
+                        experience</h3>
+                </div>
+                <div
+                    class="w-48 flex flex-col items-center text-center justify-center gap-4 p-6 rounded-lg shadow border-r-4 border-b-4 border-r-transparent border-b-transparent hover:border-r-4 hover:border-b-4 hover:border-r-secondaryColor hover:border-b-secondaryColor transition duration-300 ease-in-out">
+                    <img class="w-3/5" src="diamond.png" alt>
+                    <h3 class="text-2xl font-reddit font-bold">3 completed
+                        projects</h3>
+                </div>
+                <div
+                    class="w-48 flex flex-col items-center text-center justify-center gap-4 p-6 rounded-lg shadow border-r-4 border-b-4 border-r-transparent border-b-transparent hover:border-r-4 hover:border-b-4 hover:border-r-secondaryColor hover:border-b-secondaryColor transition duration-300 ease-in-out">
+                    <img class="w-3/5" src="id-card.png" alt>
+                    <h3 class="text-2xl font-reddit font-bold">Frontend
+                        Developer</h3>
+                </div>
+            </div>
+        </section>
+
+        <section
+            id="whatIDo"
+            class="container lg:py-40 py-8 h-auto relative">
+            <img class="absolute hidden lg:block z-[-2] -right-40 top-20 w-96 opacity-30"
+                src="dots-pattern/2.png" alt>
+            <header
+                class="w-full flex justify-between text-center lg:text-start flex-col items-start gap-10 relative">
+                <h1 class="text-5xl w-full md:text-8xl font-bold text-secondaryColor">What I
+                    Do</h1>
+                <h1
+                    class="absolute top-5 -translate-y-2/4 opacity-5 text-[200px] lg:block hidden z-[-1] font-reddit font-extrabold">What
+                    I Do</h1>
+                <div class="px-6 lg:px-0">
+                    <h3 class="text-xl leading-8 font-semibold">Lorem ipsum, dolor sit
+                        amet consectetur adipisicing
+                        elit. Deleniti tenetur placeat ipsa et, tempore quam
+                        maxime culpa eaque quisquam atque consequatur
+                        asperiores, sapiente laudantium ad dolore minima,
+                        similique beatae enim?</h3>
+                </div>
+            </header>
+            <div id="services"
+                class="relative after:bg-secondary z-20 container m-auto h-full section activeSection">
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-3 w-full h-auto lg:h-[550px] gap-y-10 py-12 place-items-center">
+                    <div
+                        class="service-card w-10/12 h-full shadow-xl cursor-pointer snap-start shrink-0 py-8 px-6 bg-fourthColor flex flex-col justify-between gap-8 lg:gap-1 transition-all duration-300 group hover:bg-[#202127] border-2 border-transparent hover:border-secondaryColor">
+                        <div>
+                            <?xml version="1.0"
+                            encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                            <svg width="64px" height="64px"
+                                viewBox="0 -1.5 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.8612 27.943C12.8281 28.4061 13.1949 28.8 13.6592 28.8H18.3408C18.8051 28.8 19.1719 28.4061 19.1388 27.943L18.4 17.6H13.6L12.8612 27.943Z"
+                                    fill="url(#paint0_linear_103_1792)" />
+                                <path
+                                    d="M28.8 0H3.2C1.43269 0 0 1.43269 0 3.2V19.2C0 20.9673 1.43269 22.4 3.2 22.4H28.8C30.5673 22.4 32 20.9673 32 19.2V3.2C32 1.43269 30.5673 0 28.8 0Z"
+                                    fill="url(#paint1_radial_103_1792)" />
+                                <path
+                                    d="M0 20.8C0 22.5673 1.43269 24 3.2 24H28.8C30.5674 24 32 22.5673 32 20.8V17.6H0V20.8Z"
+                                    fill="#D8D8D8" />
+                                <path
+                                    d="M17.6 20.8C17.6 19.9163 16.8837 19.2 16 19.2C15.1163 19.2 14.4 19.9163 14.4 20.8C14.4 21.6837 15.1163 22.4 16 22.4C16.8837 22.4 17.6 21.6837 17.6 20.8Z"
+                                    fill="#2B2B2B" />
+                                <defs>
+                                    <lineargradient
+                                        id="paint0_linear_103_1792"
+                                        x1="16" y1="16.1707" x2="16"
+                                        y2="28.8"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop
+                                            stop-color="#B8B8B8" />
+                                        <stop offset="1"
+                                            stop-color="#C7C7C7" />
+                                    </lineargradient>
+                                    <radialgradient
+                                        id="paint1_radial_103_1792"
+                                        cx="0" cy="0" r="1"
+                                        gradientUnits="userSpaceOnUse"
+                                        gradientTransform="translate(1.0941 28.8) rotate(137.02) scale(42.2447 63.3453)">
+                                        <stop />
+                                        <stop offset="1"
+                                            stop-color="#757575" />
+                                    </radialgradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <p
+                            class="font-bold text-2xl md:text-3xl uppercase group-hover:text-white text-secondaryColor">
+                            Web Design
+                        </p>
+                        <p
+                            class="group-hover:text-white text-secondaryColor/70 text-base">
+                            Website ravida surna eveti semen the
+                            conse tusio anivite dianne one nivam
+                            acestion vue artin dictum.
+                        </p>
+                        <div class="flex">
+                            <img class="w-8 md:w-14 xl:w-10" src="./icons/figma.svg" alt>
+                        </div>
+                    </div>
+                    <div
+                        class="service-card w-10/12 h-full shadow-xl cursor-pointer snap-start shrink-0 py-8 px-6 bg-fourthColor flex flex-col justify-between gap-8 lg:gap-1 transition-all duration-300 group hover:bg-[#202127] border-2 border-transparent hover:border-secondaryColor">
+                        <div>
+                            <?xml version="1.0"
+                            encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                            <svg width="64px" height="64px"
+                                viewBox="0 -1.5 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.8612 27.943C12.8281 28.4061 13.1949 28.8 13.6592 28.8H18.3408C18.8051 28.8 19.1719 28.4061 19.1388 27.943L18.4 17.6H13.6L12.8612 27.943Z"
+                                    fill="url(#paint0_linear_103_1792)" />
+                                <path
+                                    d="M28.8 0H3.2C1.43269 0 0 1.43269 0 3.2V19.2C0 20.9673 1.43269 22.4 3.2 22.4H28.8C30.5673 22.4 32 20.9673 32 19.2V3.2C32 1.43269 30.5673 0 28.8 0Z"
+                                    fill="url(#paint1_radial_103_1792)" />
+                                <path
+                                    d="M0 20.8C0 22.5673 1.43269 24 3.2 24H28.8C30.5674 24 32 22.5673 32 20.8V17.6H0V20.8Z"
+                                    fill="#D8D8D8" />
+                                <path
+                                    d="M17.6 20.8C17.6 19.9163 16.8837 19.2 16 19.2C15.1163 19.2 14.4 19.9163 14.4 20.8C14.4 21.6837 15.1163 22.4 16 22.4C16.8837 22.4 17.6 21.6837 17.6 20.8Z"
+                                    fill="#2B2B2B" />
+                                <defs>
+                                    <lineargradient
+                                        id="paint0_linear_103_1792"
+                                        x1="16" y1="16.1707" x2="16"
+                                        y2="28.8"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop
+                                            stop-color="#B8B8B8" />
+                                        <stop offset="1"
+                                            stop-color="#C7C7C7" />
+                                    </lineargradient>
+                                    <radialgradient
+                                        id="paint1_radial_103_1792"
+                                        cx="0" cy="0" r="1"
+                                        gradientUnits="userSpaceOnUse"
+                                        gradientTransform="translate(1.0941 28.8) rotate(137.02) scale(42.2447 63.3453)">
+                                        <stop />
+                                        <stop offset="1"
+                                            stop-color="#757575" />
+                                    </radialgradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <p
+                            class="font-bold text-2xl md:text-3xl uppercase group-hover:text-white text-secondaryColor">
+                            Web Development
+                        </p>
+                        <p
+                            class="group-hover:text-white text-secondaryColor/70  text-base">
+                            Website ravida surna eveti semen the
+                            conse tusio anivite dianne one nivam
+                            acestion vue artin dictum.
+                        </p>
+                        <div class="flex">
+                            <img class="w-8 md:w-14 xl:w-10" src="./icons/js.svg" alt>
+                            <img class="w-8 md:w-14 xl:w-10" src="./icons/react.svg" alt>
+                            <img class="w-8 md:w-14 xl:w-10" src="./icons/html.svg" alt>
+                            <img class="w-8 md:w-14 xl:w-10" src="./icons/css.svg" alt>
+                            <img class="w-8 md:w-14 xl:w-10" src="./icons/tailwind.svg" alt>
+                            <img class="w-8 md:w-14 xl:w-10" src="./icons/bubble.png" alt>
+                        </div>
+                    </div>
+                    <div
+                        class="service-card w-10/12 h-full shadow-xl cursor-pointer snap-start shrink-0 py-8 px-6 bg-fourthColor flex flex-col justify-between gap-8 lg:gap-1 transition-all duration-300 group hover:bg-[#202127] border-2 border-transparent hover:border-secondaryColor">
+                        <div>
+                            <?xml version="1.0"
+                            encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                            <svg width="64px" height="64px"
+                                viewBox="0 0 128 128"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                aria-hidden="true" role="img"
+                                class="iconify iconify--noto"
+                                preserveAspectRatio="xMidYMid meet"><path
+                                    d="M87.4 124H40.6c-4.7 0-8.6-3.8-8.6-8.6V12.6C32 7.9 35.9 4 40.6 4h46.8c4.7 0 8.6 3.8 8.6 8.6v102.9c0 4.7-3.9 8.5-8.6 8.5z"
+                                    fill="#424242"></path><path
+                                    d="M86.77 120.11H39.93c-2.15 0-3.89-1.74-3.89-3.89V19.65c0-2.14 1.74-3.88 3.88-3.88h48.15c2.15 0 3.89 1.74 3.89 3.89v95.93c0 .93-1.4 4.52-5.19 4.52z"
+                                    fill="#000000"></path><path
+                                    d="M73.65 11.59h-19.2c-.7 0-1.2-.6-1.2-1.2s.6-1.2 1.2-1.2h19.1c.7 0 1.2.6 1.2 1.2s-.5 1.2-1.1 1.2z"
+                                    fill="#212121"></path><path
+                                    d="M87.4 6c3.64 0 6.6 2.96 6.6 6.6v102.9c0 3.58-2.96 6.5-6.6 6.5H40.6c-3.64 0-6.6-2.96-6.6-6.6V12.6C34 9.02 37.02 6 40.6 6h46.8m0-2H40.6C35.9 4 32 7.9 32 12.6v102.8c0 4.8 3.9 8.6 8.6 8.6h46.8c4.7 0 8.6-3.8 8.6-8.5V12.6C96 7.8 92.1 4 87.4 4z"
+                                    fill="#757575"></path><path
+                                    d="M48.35 29.96h-6.36c-.73 0-1.32-.59-1.32-1.32v-6.36c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .73-.59 1.32-1.32 1.32z"
+                                    fill="#eab56e"></path><path
+                                    d="M60.9 29.96h-6.36c-.73 0-1.32-.59-1.32-1.32v-6.36c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .73-.59 1.32-1.32 1.32z"
+                                    fill="#fb8c00"></path><path
+                                    d="M73.45 29.96H67.1c-.73 0-1.32-.59-1.32-1.32v-6.36c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .73-.59 1.32-1.33 1.32z"
+                                    fill="#ff80ab"></path><path
+                                    d="M86.01 29.96h-6.36c-.73 0-1.32-.59-1.32-1.32v-6.36c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .73-.59 1.32-1.32 1.32z"
+                                    fill="#0288d1"></path><path
+                                    d="M48.35 44.12h-6.36c-.73 0-1.32-.59-1.32-1.32v-6.36c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .73-.59 1.32-1.32 1.32z"
+                                    fill="#00bfa5"></path><path
+                                    d="M60.9 44.12h-6.36c-.73 0-1.32-.59-1.32-1.32v-6.36c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .73-.59 1.32-1.32 1.32z"
+                                    fill="#81d4fa"></path><path
+                                    d="M73.45 44.12H67.1c-.73 0-1.32-.59-1.32-1.32v-6.36c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .73-.59 1.32-1.33 1.32z"
+                                    fill="#fb8c00"></path><path
+                                    d="M86.01 44.12h-6.36c-.73 0-1.32-.59-1.32-1.32v-6.36c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .73-.59 1.32-1.32 1.32z"
+                                    fill="#eab56e"></path><path
+                                    d="M48.35 58.28h-6.36c-.73 0-1.32-.59-1.32-1.32V50.6c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .73-.59 1.32-1.32 1.32z"
+                                    fill="#fb8c00"></path><path
+                                    d="M60.9 58.28h-6.36c-.73 0-1.32-.59-1.32-1.32V50.6c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .73-.59 1.32-1.32 1.32z"
+                                    fill="#ff80ab"></path><path
+                                    d="M73.45 58.28H67.1c-.73 0-1.32-.59-1.32-1.32V50.6c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .73-.59 1.32-1.33 1.32z"
+                                    fill="#00bfa5"></path><path
+                                    d="M86.01 58.28h-6.36c-.73 0-1.32-.59-1.32-1.32V50.6c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .73-.59 1.32-1.32 1.32z"
+                                    fill="#0288d1"></path><path
+                                    d="M48.35 72.44h-6.36c-.73 0-1.32-.59-1.32-1.32v-6.36c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .73-.59 1.32-1.32 1.32z"
+                                    fill="#0288d1"></path><path
+                                    d="M60.9 72.44h-6.36c-.73 0-1.32-.59-1.32-1.32v-6.36c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .73-.59 1.32-1.32 1.32z"
+                                    fill="#81d4fa"></path><path
+                                    d="M48.35 114.92h-6.36c-.73 0-1.32-.59-1.32-1.32v-6.36c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .72-.59 1.32-1.32 1.32z"
+                                    fill="#81d4fa"></path><path
+                                    d="M60.9 114.92h-6.36c-.73 0-1.32-.59-1.32-1.32v-6.36c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .72-.59 1.32-1.32 1.32z"
+                                    fill="#0288d1"></path><path
+                                    d="M73.45 114.92H67.1c-.73 0-1.32-.59-1.32-1.32v-6.36c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .72-.59 1.32-1.33 1.32z"
+                                    fill="#00bfa5"></path><path
+                                    d="M86.01 114.92h-6.36c-.73 0-1.32-.59-1.32-1.32v-6.36c0-.73.59-1.32 1.32-1.32h6.36c.73 0 1.32.59 1.32 1.32v6.36c0 .72-.59 1.32-1.32 1.32z"
+                                    fill="#ff80ab"></path></svg>
+                        </div>
+                        <p
+                            class="font-bold text-2xl md:text-3xl uppercase group-hover:text-white text-secondaryColor">
+                            Mobile Development
+                        </p>
+                        <p
+                            class="group-hover:text-white text-secondaryColor/70 text-base">
+                            Website ravida surna eveti semen the
+                            conse tusio anivite dianne one nivam
+                            acestion vue artin dictum.
+                        </p>
+                        <div class="flex gap-3">
+                            <img class="w-8 md:w-14 xl:w-10" src="./icons/react.svg" alt>
+                            <img class="w-8 md:w-14 xl:w-10" src="./icons/flutterflow.png" alt>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            id="skills"
+            class="w-full py-20 lg:py-32 flex justify-center bg-bgDark">
+            <div class="container relative flex flex-col">
+                <header
+                    class="w-full flex justify-between text-center lg:text-start items-center pb-6 lg:pb-20 relative">
+                    <h1 class="text-5xl w-full md:text-8xl font-bold text-secondaryColor">My
+                        Skills</h1>
+                    <h1
+                        class="absolute top-5 -translate-y-2/4 opacity-5 text-[200px] lg:block hidden font-reddit font-extrabold">My
+                        Skills</h1>
+                </header>
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-24 md:gap-y-36 w-full py-8 place-items-center">
+                    <div
+                        class="border-transparent border-2 h-[210px] cardSkill relative w-fit flex flex-col items-center gap-4 transition duration-300 text-cards">
+                        <img
+                            class="imageSkillUnder absolute lg:block hidden w-36 -right-24 -top-16 z-10 opacity-0 "
+                            src="icons/css-3.png" alt>
+                        <div
+                            class="bg-[#151e2f] p-14 rounded-xl containerImgSkill z-20 border-[1px] border-transparent hover:border-secondaryColor hover:border-opacity-15">
+                            <img class="w-24 iconSkill" src="icons/css-3.png"
+                                alt>
+                        </div>
+                        <span
+                            class="nameSkill text-xl font-reddit font-extrabold">CSS
+                            3</span>
+                    </div>
+                    <div
+                        class="border-transparent border-2 h-[210px] cardSkill relative w-fit flex flex-col items-center gap-4 transition duration-300 text-cards">
+                        <img
+                            class="imageSkillUnder absolute lg:block hidden w-36 -right-24 -top-16 z-10 opacity-0 "
+                            src="icons/html-5.png" alt>
+                        <div
+                            class="bg-[#151e2f] p-14 rounded-xl containerImgSkill z-20 border-[1px] border-transparent hover:border-secondaryColor hover:border-opacity-15">
+                            <img class="w-24 iconSkill" src="icons/html-5.png"
+                                alt>
+                        </div>
+                        <span
+                            class="nameSkill text-xl font-reddit font-extrabold">HTML
+                            5</span>
+                    </div>
+                    <div
+                        class="border-transparent border-2 h-[210px] cardSkill relative w-fit flex flex-col items-center gap-4 transition duration-300 text-cards">
+                        <img
+                            class="imageSkillUnder absolute lg:block hidden w-36 -right-24 -top-16 z-10 opacity-0 "
+                            src="icons/react.svg" alt>
+                        <div
+                            class="bg-[#151e2f] p-14 rounded-xl containerImgSkill z-20 border-[1px] border-transparent hover:border-secondaryColor hover:border-opacity-15">
+                            <img class="w-24 iconSkill" src="icons/react.svg"
+                                alt>
+                        </div>
+                        <span
+                            class="nameSkill text-xl font-reddit font-extrabold">React</span>
+                    </div>
+                    <div
+                        class="border-transparent border-2 h-[210px] cardSkill relative w-fit flex flex-col items-center gap-4 transition duration-300 text-cards">
+                        <img
+                            class="imageSkillUnder absolute lg:block hidden w-36 -right-24 -top-16 z-10 opacity-0 "
+                            src="icons/react-native.webp" alt>
+                        <div
+                            class="bg-[#151e2f] p-14 rounded-xl containerImgSkill z-20 border-[1px] border-transparent hover:border-secondaryColor hover:border-opacity-15">
+                            <img class="w-24 iconSkill"
+                                src="icons/react-native.webp" alt>
+                        </div>
+                        <span
+                            class="nameSkill text-xl font-reddit font-extrabold">React
+                            Native</span>
+                    </div>
+                    <div
+                        class="border-transparent border-2 h-[210px] cardSkill relative w-fit flex flex-col items-center gap-4 transition duration-300 text-cards">
+                        <img
+                            class="imageSkillUnder absolute lg:block hidden w-36 -right-24 -top-16 z-10 opacity-0 "
+                            src="icons/js.svg" alt>
+                        <div
+                            class="bg-[#151e2f] p-14 rounded-xl containerImgSkill z-20 border-[1px] border-transparent hover:border-secondaryColor hover:border-opacity-15">
+                            <img class="w-24 iconSkill"
+                                src="icons/js.svg" alt>
+                        </div>
+                        <span
+                            class="nameSkill text-xl font-reddit font-extrabold">JavaScript</span>
+                    </div>
+                    <div
+                        class="border-transparent border-2 h-[210px] cardSkill relative w-fit flex flex-col items-center gap-4 transition duration-300 text-cards">
+                        <img
+                            class="imageSkillUnder absolute lg:block hidden w-36 -right-24 -top-16 z-10 opacity-0 "
+                            src="icons/flutterflow.png" alt>
+                        <div
+                            class="bg-[#151e2f] p-14 rounded-xl containerImgSkill z-20 border-[1px] border-transparent hover:border-secondaryColor hover:border-opacity-15">
+                            <img class="w-24 iconSkill"
+                                src="icons/flutterflow.png" alt>
+                        </div>
+                        <span
+                            class="nameSkill text-xl font-reddit font-extrabold">FlutterFlow</span>
+                    </div>
+                    <div
+                        class="border-transparent border-2 h-[210px] cardSkill relative w-fit flex flex-col items-center gap-4 transition duration-300 text-cards">
+                        <img
+                            class="imageSkillUnder absolute lg:block hidden w-36 -right-24 -top-16 z-10 opacity-0 "
+                            src="icons/bubble.png" alt>
+                        <div
+                            class="bg-[#151e2f] p-14 rounded-xl containerImgSkill z-20 border-[1px] border-transparent hover:border-secondaryColor hover:border-opacity-15">
+                            <img class="w-24 iconSkill" src="icons/bubble.png"
+                                alt>
+                        </div>
+                        <span
+                            class="nameSkill text-xl font-reddit font-extrabold">Bubble</span>
+                    </div>
+                    <div
+                        class="border-transparent border-2 h-[210px] cardSkill relative w-fit flex flex-col items-center gap-4 transition duration-300 text-cards">
+                        <img
+                            class="imageSkillUnder absolute lg:block hidden w-36 -right-24 -top-16 z-10 opacity-0 "
+                            src="icons/tailwind.svg" alt>
+                        <div
+                            class="bg-[#151e2f] p-14 rounded-xl containerImgSkill z-20 border-[1px] border-transparent hover:border-secondaryColor hover:border-opacity-15">
+                            <img class="w-24 iconSkill"
+                                src="icons/tailwind.svg" alt>
+                        </div>
+                        <span
+                            class="nameSkill text-xl font-reddit font-extrabold">Tailwind</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            id="projects"
+            class="w-full py-20 lg:py-32 flex justify-center bg-backgroundColor">
+            <div class="container relative flex flex-col">
+                <header
+                    class="w-full flex text-center lg:text-start justify-between items-center pb-20 relative">
+                    <h1 class="text-5xl w-full md:text-8xl font-bold text-secondaryColor">My Projects</h1>
+                    <h1
+                        class="absolute top-5 -translate-y-2/4 opacity-5 text-[200px] lg:block hidden font-reddit font-extrabold">My Projects</h1>
+                </header>
+
+
+                <div class="flex items-center justify-center py-4 md:py-8 flex-wrap">
+                    <button type="button" class="text-backgroundColor hover:text-cards border border-cards bg-cards hover:bg-backgroundColor focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 transition duration-300">All categories</button>
+                    <button type="button" class="text-cards hover:bg-cards hover:text-backgroundColor border border-cards bg-backgroundColor focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 transition duration-300">Web Design</button>
+                    <button type="button" class="text-cards hover:bg-cards hover:text-backgroundColor border border-cards bg-backgroundColor focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 transition duration-300">Web Development</button>
+                    <button type="button" class="text-cards hover:bg-cards hover:text-backgroundColor border border-cards bg-backgroundColor focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 transition duration-300">Mobile Development</button>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg" alt="">
+                    </div>
+                </div>
+                
+            
+            </div>
+            
+        </section>
+
+        <section
+            id="contact"
+            class="w-full py-10 font-reddit lg:py-32 flex justify-center bg-backgroundColor">
+            <div class="container relative flex flex-col">
+                <header
+                    class="w-full flex text-center lg:text-start justify-between items-center pb-20 relative">
+                    <h1 class="text-5xl w-full md:text-8xl font-extrabold text-secondaryColor">Get in Touch</h1>
+                    <h1
+                        class="absolute top-5 -translate-y-2/4 opacity-5 text-[200px] lg:block hidden font-reddit font-extrabold">Get In Touch</h1>
+                </header>
+                <div class="flex justify-center items-center w-full ">
+                    <div class="px-10 lg:px-0 max-w-4xl w-full">
+                        <form action="#" class="space-y-8">
+                            <div>
+                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+                                <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required>
+                            </div>
+                            <div>
+                                <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
+                                <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+                                <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
+                            </div>
+                            <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-backgroundColor rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 bg-cards">Send message</button>
+                        </form>
+                    </div>
+                </div>
+
+            
+        </section>
+
+        <footer class="h-56 md:h-48 font-reddit border-t-2 border-cards w-full bg-bgDark">
+            <div class="grid md:py-0 py-4 grid-cols-1 md:grid-cols-3 h-full w-full place-items-center">
+                <div><h1 class="text-4xl font-extrabold">Nilo Sousa</h1></div>
+                <div><h3>Todos os direitos Reservados</h3></div>
+                <div class="flex gap-8 justify-center items-center">
+                    <img class=" w-6 md:w-12" src="linkedin.png" alt="">
+                    <img class=" w-6 md:w-12" src="github.png" alt="">
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            new TypeIt("#reveal1", {
+                speed: 40,
+                loop: true
+            })
+            .type("develop <span class='text-thirdColor font-extrabold'>mobile apps</span>")
+            .pause(650)
+            .delete()
+            .type("code <span class='text-thirdColor font-extrabold'>amazing websites</span>")
+            .pause(650)
+            .delete()
+            .type("am <span class='text-thirdColor font-extrabold'>Frontend Developer</span>")
+            .pause(650)
+            .delete()
+            .type("am <span class='text-thirdColor font-extrabold'>Freelancer</span>")
+            .pause(600)
+            .go()     
+            
+            
+
+            function toggleAccordion(id) {
+                const accordionContent = document.getElementById(`accordion-content-${id}`);
+                const accordionIcon = document.getElementById(`accordion-icon-${id}`);
+                const accordionContainer = document.getElementById(`containerAccordion-${id}`);
+                
+                if (accordionContent.classList.contains('accordionClosed')) {
+                    // Se o conteúdo do acordeão estiver oculto, mostra-o
+                    accordionContent.classList.remove('accordionClosed');
+                    accordionIcon.classList.add('accordionOpen');
+                    accordionIcon.classList.add('fa-rotate-270');
+                    accordionContainer.classList.add('fade-out-left');
+                    accordionContainer.classList.remove('fade-out-right');
+                    accordionContainer.classList.remove('hidden');
+                } else {
+                    // Caso contrário, oculta-o
+                    accordionContent.classList.add('accordionClosed');
+                    accordionContainer.classList.add('fade-out-right');
+                    accordionContainer.classList.remove('fade-out-left');
+
+                    accordionIcon.classList.remove('accordionOpen');
+                    accordionIcon.classList.remove('fa-rotate-270');
+                }
+
+                accordionContainer.addEventListener('animationend', () => {
+                    if (accordionContainer.classList.contains('fade-out-right')) {
+                        accordionContainer.classList.add('hidden');
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
